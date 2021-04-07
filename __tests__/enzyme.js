@@ -6,9 +6,9 @@ import { createShallow } from '@material-ui/core/test-utils';
 
 // Enzyme is a wrapper around React test utilities which makes it easier to
 // shallow render and traverse the shallow rendered tree.
+import { Box } from '@material-ui/core';
 import MainBody from '../client/components/mainBody.jsx';
 import Navbar from '../client/components/navbar.jsx';
-import { Box } from '@material-ui/core';
 
 // Newer Enzyme versions require an adapter to a particular version of React
 configure({ adapter: new Adapter() });
