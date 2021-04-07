@@ -14,64 +14,65 @@ import Navbar from '../client/components/navbar.jsx';
 configure({ adapter: new Adapter() });
 
 describe('React unit tests', () => {
-  describe('MainBody', () => {
-    let wrapper;
-    const props = {};
+	describe('MainBody', () => {
+		let wrapper;
+		const props = {};
 
-    beforeAll(() => {
-      wrapper = shallow(<MainBody {...props} />);
-    });
+		beforeAll(() => {
+			wrapper = shallow(<MainBody {...props} />);
+		});
 
-    it('Renders a <div> with an instance of <ItemOuterContainer/>', () => {
-      expect(wrapper.type()).toEqual('div');
-    });
-  });
+		it('Renders a <div>', () => {
+			// with an instance of <ItemOuterContainer/>
+			expect(wrapper.type()).toEqual('div');
+		});
+	});
 
-  xdescribe('Box from MaterialUI', () => {
-    let wrapper;
-    const props = {};
+	describe('MaterialUI Components', () => {
+		describe('Product description is displayed in <Box>', () => {
+			let wrapper;
+			const props = {
+				title: 'Face Shield',
+			};
 
-    beforeAll(() => {
-      wrapper = createShallow(<MainBody {...props} />);
-    });
+			beforeAll(() => {
+				wrapper = shallow(
+					<Box component="span" {...props}>
+						Product: {props.title}
+					</Box>
+				);
+			});
 
-    xit('Renders a Box from MaterialUI', () => {});
-  });
+			it('Renders a <span> with product label and description', () => {
+				expect(wrapper.type()).toEqual('span');
+				expect(wrapper.text()).toEqual('Product: Face Shield');
+			});
+		});
 
-  describe('MaterialUI Components', () => {
-    describe('Product description is displayed in <Box>', () => {
-      let wrapper;
-      const props = {
-        title: 'Face Shield',
-      };
+		describe('IndividualDisplay Box', () => {
+			let wrapper;
+			const props = {
+				id: 1,
+			};
 
-      beforeAll(() => {
-        wrapper = shallow(
-          <Box component="span" {...props}>
-            Product:
-            {' '}
-            {props.title}
-          </Box>,
-        );
-      });
+			beforeEach(() => {
+				wrapper = shallow(
+					<Box {...props}>
+						<Box>
+							<img src="blahh"></img>
+						</Box>
+					</Box>
+				);
+			});
 
-      it('Renders a <span> with product label and description', () => {
-        expect(wrapper.type()).toEqual('span');
-        expect(wrapper.text()).toEqual('Product: Face Shield');
-        // check color
-        // expect(wrapper.find("strong").text()).toMatch("Mega")
-      });
-    });
-
-    xdescribe('Box from MaterialUI', () => {
-      let wrapper;
-      const props = {};
-
-      beforeAll(() => {
-        wrapper = createShallow(<MainBody {...props} />);
-      });
-
-      xit('Renders a Box from MaterialUI', () => {});
-    });
-  });
+			it('Renders a Box div', () => {
+				expect(wrapper.type()).toEqual('div');
+			});
+			it('should contain an img', () => {
+				expect(wrapper.find('img').prop('src')).toEqual('blahh');
+			});
+			xit('should contain 5 spans', () => {});
+			xit('should contain an Add To Cart button', () => {});
+		});
+	});
 });
