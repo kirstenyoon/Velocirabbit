@@ -27,16 +27,16 @@ describe('React unit tests', () => {
 		});
 	});
 
-	// xdescribe('Box from MaterialUI', () => {
-	// 	let wrapper;
-	// 	const props = {};
+	xdescribe('Box from MaterialUI', () => {
+		let wrapper;
+		const props = {};
 
-	// 	beforeAll(() => {
-	// 		wrapper = createShallow(<MainBody {...props} />);
-	// 	});
+		beforeAll(() => {
+			wrapper = createShallow(<MainBody {...props} />);
+		});
 
-	// 	xit('Renders a Box from MaterialUI', () => {});
-	// });
+		xit('Renders a Box from MaterialUI', () => {});
+	});
 
 	describe('MaterialUI Components', () => {
 		describe('Product description is displayed in <Box>', () => {
@@ -61,15 +61,15 @@ describe('React unit tests', () => {
 			});
 		});
 
-		// xdescribe('Box from MaterialUI', () => {
-		// 	let wrapper;
-		// 	const props = {};
+		xdescribe('Box from MaterialUI', () => {
+			let wrapper;
+			const props = {};
 
-		// 	beforeAll(() => {
-		// 		wrapper = createShallow(<MainBody {...props} />);
-		// 	});
+			beforeAll(() => {
+				wrapper = createShallow(<MainBody {...props} />);
+			});
 
-		// 	xit('Renders a Box from MaterialUI', () => {});
-		// });
+			xit('Renders a Box from MaterialUI', () => {});
+		});
 	});
 });
