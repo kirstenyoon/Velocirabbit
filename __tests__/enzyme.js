@@ -26,14 +26,14 @@ describe("React unit tests", () => {
 		});
 	});
 
-	xdescribe("Box from MaterialUI", () => {
-		let wrapper;
-		const props = {};
+	// xdescribe("Box from MaterialUI", () => {
+	// 	let wrapper;
+	// 	const props = {};
 
-		beforeAll(() => {
-			wrapper = createShallow(<MainBody {...props} />);
-		});
+	// 	beforeAll(() => {
+	// 		wrapper = createShallow(<MainBody {...props} />);
+	// 	});
 
-		xit("Renders a Box from MaterialUI", () => {});
-	});
+	// 	xit("Renders a Box from MaterialUI", () => {});
+	// });
 });
