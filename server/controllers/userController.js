@@ -15,12 +15,25 @@ const userSchema = new Schema({
 });
 */
 
+// ADD USER TO DATABASE:
+// userController.addUser = (req, res, next) => {
+//   const { username, password } = req.body;
+//   const salt = bcrypt.genSaltSync(10);
+//   const hash = bcrypt.hashSync(password, salt);
+//   models.User.create({ username, password: hash },
+//     (err) => {
+//       if (err) return next({ log: err, message: 'userController.addUser failed' });
+//       return next();
+//     });
+// };
+
 // ADD USER TO DATABASE (modified based on updated schema):
 userController.addUser = (req, res, next) => {
   const { username, password, email, access_id, hashed_id } = req.body;
   const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(password, salt);
-  models.User.create({ username, password: hash, email, access_id, hashed_id },
+  const passwordHash = bcrypt.hashSync(password, salt);
+  const usernameHash = bcrypt.hashSync(username, salt);
+  models.User.create({ username, password: passwordHash, email, access_id, hashed_id: usernameHash },
     (err) => {
       if (err) return next({ log: err, message: 'userController.addUser failed' });
       return next();
