@@ -3,7 +3,7 @@ import React from 'react';
 function Admin() {
   return (
     <div className="admin">
-      <h1>Admin!!</h1>
+      <h1>YAY! Admin!!</h1>
     </div>
   );
 }
