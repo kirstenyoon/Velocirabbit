@@ -3,12 +3,24 @@ const models = require('../models/sickBayModels');
 
 const userController = {};
 
-// ADD USER TO DATABASE
+/*
+Copied the userSchema here for reference:
+
+const userSchema = new Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true },
+  access_id: { type: String, required: true },
+  hashed_id: { type: String, required: true },
+});
+*/
+
+// ADD USER TO DATABASE (modified based on updated schema):
 userController.addUser = (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password, email, access_id, hashed_id } = req.body;
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(password, salt);
-  models.User.create({ username, password: hash },
+  models.User.create({ username, password: hash, email, access_id, hashed_id },
     (err) => {
       if (err) return next({ log: err, message: 'userController.addUser failed' });
       return next();
