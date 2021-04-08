@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const dotenv = require('dotenv').config;
 
 // const { MONGO_URI } = process.env;
 const MONGO_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oxti2.mongodb.net/sickBayDB?retryWrites=true&w=majority`;
