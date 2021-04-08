@@ -8,7 +8,7 @@ function App() {
   // useEffect(() => {
   //   fetch(`/ + ${username} + ${password}`);
   // });
-  const [user, setUser] = useState('admin');
+  const [user, setUser] = useState('');
 
   // setUser('user');
   // setUser("admin")
