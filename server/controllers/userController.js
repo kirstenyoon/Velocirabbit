@@ -75,8 +75,12 @@ userController.verifyUser = (req, res, next) => {
 }
 
 userController.logout = (req, res, next) => {
-  req.session = null;
-  next();
+  req.session.destroy(function (err) {
+    if(err) {
+      return next(err);
+    }
+    next();
+  })
 }
 
 module.exports = userController;

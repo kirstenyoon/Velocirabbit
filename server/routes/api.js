@@ -24,9 +24,10 @@ router.get('/checkSession', (req, res) => {
   res.status(200).json(req.session.auth);
 });
 
+// LOGOUT USER AND DELETE SESSION **  New feature for logging out and deleting a user's session information
 router.get('/logout', userController.logout, (req, res) => {
-  res.redirect('/');
-})
+  res.redirect('/')
+});
 
 // ################## PRODUCT ROUTES ################## 
 // ADD NEW PRODUCTS
