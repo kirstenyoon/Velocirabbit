@@ -12,9 +12,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sick-Bay/sickBay.git"
+    "url": "https://github.com/Velocirabbit-Sick-Bay/Velocirabbit.git"
   },
-  "author": "Danny, Daryl, Justin, Bruno, John",
+  "author": "Alex, Peter, Kirsten, Nachiket",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sick-Bay/sickBay/issues"
@@ -41,6 +41,7 @@
     "react-bootstrap": "^1.5.2",
     "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "sass-loader": "^10.1.1"
   },
