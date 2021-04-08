@@ -24,6 +24,10 @@ router.get('/checkSession', (req, res) => {
   res.status(200).json(req.session.auth);
 });
 
+router.get('/logout', userController.logout, (req, res) => {
+  res.redirect('/');
+})
+
 // ################## PRODUCT ROUTES ################## 
 // ADD NEW PRODUCTS
 router.post('/product', productController.addProducts, (req, res) => {
