@@ -31,6 +31,9 @@ const Product = mongoose.model('product', productSchema);
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  email: { type: String, required: true },
+  access_id: { type: String, required: true },
+  hashed_id: { type: String, required: true },
 });
 
 const User = mongoose.model('User', userSchema);
