@@ -39,10 +39,15 @@ module.exports = {
         target: 'http://localhost:3000',
         secure: false,
       },
+      // '/loggedIn': {
+      //   target: 'http://localhost:3000/loggedIn',
+      //   secure: false,
+      // },
     },
     port: 8080,
     host: '0.0.0.0',
     hot: true,
+    historyApiFallback: true,
   },
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
