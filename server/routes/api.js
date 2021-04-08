@@ -24,10 +24,20 @@ router.get('/categoryProducts', productController.categoryProducts, (req, res) =
   res.status(200).json(res.locals);
 });
 
+// GET ALL USERS ** New feature router for admin testing/page
+router.get('/allUsers', userController.getAllUsers, (req, res) => {
+  res.status(200).json(res.locals);
+});
+
 // VERIFY USER INFORMATION FROM DB
 router.post('/verifyUser', userController.verifyUser, (req, res) => {
   res.status(200).json(res.locals);
 })
+
+// CHECK SESSION **  New feature for testing if express-session is working properly
+router.get('/checkSession', (req, res) => {
+  res.status(200).json(req.session.auth);
+});
 
 // ADD NEW PRODUCTS
 router.post('/product', productController.addProducts, (req, res) => {
