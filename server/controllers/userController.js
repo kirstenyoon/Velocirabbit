@@ -40,7 +40,7 @@ userController.getAllUsers = (req, res, next) => {
   }));
 };
 
-// VERIFY USER INFORMATION IN DB
+// VERIFY USER INFORMATION IN DB ** New feature creates a session for the user with identifying information: access_id and username
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
   models.User.findOne({ username }, 
@@ -52,8 +52,7 @@ userController.verifyUser = (req, res, next) => {
       }
       const verified = bcrypt.compareSync(password, user.password);
       if (verified) {
-        // adding a temp value to session for testing ** New feature for testing express-session
-        req.session.auth = "verified";
+        req.session.auth = {username: user.username, access_id: user.access_id}
         res.locals = 'You have been successfully logged in. Welcome Back!';
       } else {
         res.locals = 'The username and password you entered did not match our records. Please double-check and try again.';
