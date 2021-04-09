@@ -6,7 +6,8 @@ import Box from '@material-ui/core/Box';
 
 // React/material UI Button stylizing, special constructor to enforce style when using material ui
 const AddToCartButton = styled(Button)({
-  background: 'linear-gradient(45deg, #3F9D47 40%, #00d4ff 100%)',
+ //background: 'linear-gradient(45deg, #3F9D47 40%, #00d4ff 100%)',
+  background: '#0294ED',
   border: 0,
   borderRadius: 10,
   boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -31,7 +32,7 @@ const IndividualDisplay = (props) => (
     <Box flexGrow="1">
       <img src={props.image} alt="Image Not Found" width="100%" />
     </Box>
-    <Box component="span" flexGrow="1" padding="1% 0px" color="primary.main">
+    <Box component="span" flexGrow="1" padding="1% 0px" color="primary.dark">
       Product: {props.title}
     </Box>
     <Box component="span" flexGrow="1" padding="1% 0px" color="text.secondary">
@@ -40,7 +41,7 @@ const IndividualDisplay = (props) => (
     <Box component="span" flexGrow="1" padding="1% 0px" color="text.secondary">
       Category: {props.category}
     </Box>
-    <Box component="span" flexGrow="1" padding="1% 0px" color="info.main">
+    <Box component="span" flexGrow="1" padding="1% 0px" color="#FF2E00">
       Quantity: {props.quantity}
     </Box>
     <Box

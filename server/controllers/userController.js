@@ -83,10 +83,12 @@ userController.verifyUser = (req, res, next) => {
     });
 }
 
+// LOGOUT USER ** New feature that logs a user out by destroying the user's session that contains user information.
 userController.logout = (req, res, next) => {
   req.session.destroy(function (err) {
     if(err) {
-      return next(err);
+      res.locals = 'There was a problem with logging out. Please check that you are logged in.';
+      return next();
     }
     next();
   })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, makeStyles, Box } from '@material-ui/core';
+import { Typography, makeStyles, Box, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -18,7 +18,6 @@ const LogoName = (props) => {
       <Typography className={classes.title} variant="h4" noWrap>
         sickBay
       </Typography>
-
     </div>
   );
 };
