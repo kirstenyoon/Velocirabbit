@@ -30,7 +30,7 @@ const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true },
-  access_id: { type: String, required: true },
+  access_id: { default: 0, type: Number, required: true },
   hashed_id: { type: String, required: true },
 });
 

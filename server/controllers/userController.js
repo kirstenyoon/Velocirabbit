@@ -3,30 +3,6 @@ const models = require('../models/sickBayModels');
 
 const userController = {};
 
-/*
-Copied the userSchema here for reference:
-
-const userSchema = new Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  email: { type: String, required: true },
-  access_id: { type: String, required: true },
-  hashed_id: { type: String, required: true },
-});
-*/
-
-// ADD USER TO DATABASE:
-// userController.addUser = (req, res, next) => {
-//   const { username, password } = req.body;
-//   const salt = bcrypt.genSaltSync(10);
-//   const hash = bcrypt.hashSync(password, salt);
-//   models.User.create({ username, password: hash },
-//     (err) => {
-//       if (err) return next({ log: err, message: 'userController.addUser failed' });
-//       return next();
-//     });
-// };
-
 // ADD USER TO DATABASE (modified based on updated schema):
 userController.addUser = (req, res, next) => {
   const { username, password, email, access_id, hashed_id } = req.body;
@@ -39,6 +15,39 @@ userController.addUser = (req, res, next) => {
       return next();
     });
 };
+
+// GET USER BY USERNAME
+userController.getUser = (req, res, next) => {
+ const { username } = req.body;
+  models.User.findOne({ username })
+  .then((data) => {
+      res.locals.user = data.username;
+      next();
+    })
+    .catch((err) => next({
+      log: err,
+      message: { err: 'userController.getUser failed.' },
+    }));
+};
+
+// UPDATE USER INFO IN DATABASE
+userController.updateUserInfo = (req, res, next) => {
+  // can update only password & email
+  const { access_id, email } = req.body;
+  // check if the username matches with an existing username using _id:
+  const condition = { _id: req.params.id };
+  user.update(condition, { access_id: access_id, email: email })
+  .then((data) => {
+    if (!data) // fix this
+    // return res.status(404).end();
+    next();
+  })
+  .catch((err) => next({
+    log: err,
+    message: { err: 'userController.getUser failed.' },
+  }));
+ 
+}
 
 // GET ALL USERS FROM DATABASE ** New feature meant for admin testing/page
 userController.getAllUsers = (req, res, next) => {
