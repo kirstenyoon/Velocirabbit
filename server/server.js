@@ -12,15 +12,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // This will immediately create a session with null value. It will be sent to the client when they access our site
-app.use(session({
-	secret: process.env.SESSION_SECRET,
-	name: 'sickbay-cookie',
-	cookie: {
-		httpOnly: true,
-		maxAge: 1 * 60 * 60 * 24 * 1000 // if not defined then session will be destroyed on condition i.e. exiting browser
-	}
-
-}))
+app.use(
+	session({
+		secret: process.env.SESSION_SECRET,
+		name: 'sickbay-cookie',
+		cookie: {
+			httpOnly: true,
+			maxAge: 1 * 60 * 60 * 24 * 1000, // if not defined then session will be destroyed on condition i.e. exiting browser
+		},
+	})
+);
 
 // Endpoint for all defined routes and controllers
 app.use('/api', api);
