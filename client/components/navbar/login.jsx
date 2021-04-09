@@ -31,7 +31,7 @@ const LoginPopupState = ({ classes }) => {
   });
   return (
     <div>
-      <Button onClick={(e) => console.log('Login Button Clicked!')} color="secondary" variant="contained" {...bindTrigger(popupState)}>Login</Button>
+      <Button onClick={(e) => console.log('Login Button Clicked!')} color="#FF2E00" variant="contained" {...bindTrigger(popupState)}>Login</Button>
       <Popover
         {...bindPopover(popupState)}
         anchorOrigin={{
@@ -45,7 +45,7 @@ const LoginPopupState = ({ classes }) => {
       >
         <Typography className={classes.typography}>
           <form action="/api/verifyUser" method="POST">
-            <TextField required id="standard-required" label="Username Required" type="text" defaultValue="Username" name="username" />
+            <TextField required id="standard-required" label="Username Required" type="text" defaultValue="" name="username" />
             <TextField required id="standard-password-input" label="Password Required" type="password" defaultValue="" name="password" />
             <Button type="submit">Submit</Button>
           </form>

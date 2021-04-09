@@ -31,7 +31,7 @@ const SignupPopupState = ({ classes }) => {
   });
   return (
     <div>
-      <Button onClick={(e) => console.log('Signup Button Clicked!')} color="secondary" variant="contained" {...bindTrigger(popupState)}>
+      <Button onClick={(e) => console.log('Signup Button Clicked!')} color="#FF2E00" variant="contained" {...bindTrigger(popupState)}>
         Sign Up
       </Button>
       <Popover

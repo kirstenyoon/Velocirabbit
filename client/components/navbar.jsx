@@ -6,11 +6,12 @@ import {
 // Local files imports
 import LogoName from './navbar/logoName';
 import BigSearch from './navbar/bigSearch';
-
+import {Breadcrumbs} from '@material-ui/core';
 import Categories from './navbar/categories';
 
 import Login from './navbar/login';
 import Signup from './navbar/signup';
+import { BrandingWatermark } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -57,8 +58,12 @@ const Navbar = (props) => {
           <BigSearch setState={props.setState} />
           <div className={classes.grow} />
           <ButtonGroup variant="contained">
+          <Breadcrumbs
+          separator=" "
+          >
             <Login />
             <Signup />
+            </Breadcrumbs>
           </ButtonGroup>
         </Toolbar>
         <Toolbar>

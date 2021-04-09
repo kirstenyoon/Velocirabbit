@@ -7,15 +7,15 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade('#F1EAEA', 0.4),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.white, 0.4),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
+    width: '50%',
     marginLeft: theme.spacing(3),
-    width: '75%',
+    width: '50%',
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -88,6 +88,7 @@ export default function BigSearch(props) {
       <InputBase
         type="text"
         placeholder="Search.."
+        color='#000000'
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

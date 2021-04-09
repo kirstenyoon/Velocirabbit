@@ -1,9 +1,12 @@
-import { AddCommentTwoTone } from '@material-ui/icons';
-import { Box, Button } from '@material-ui/core';
+import { AddCommentTwoTone, Favorite, Games } from '@material-ui/icons';
+import { Box, Breadcrumbs, Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-
+import PersonIcon from '@material-ui/icons/Person';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import GamesIcon from '@material-ui/icons/Games';
 function Categories(props) {
   const [categories, setCategories] = useState([]);
+  const [icons, setIcons] = useState([<FavoriteIcon/>, <GamesIcon/>, <PersonIcon/>]);
 
   useEffect(() => {
     fetch('/api/categoryList')
@@ -24,21 +27,23 @@ function Categories(props) {
       .catch((err) => console.log('There has been a problem with fetching categories: ', err));
   }
   return (
-    <Box display="flex" justifyContent="space_between">
+   // <Box display="flex" justifyContent="space_between">
+   <Breadcrumbs separator=' | '>
       {
       categories
         .map((category, index) => (
-          <Button color="secondary" 
+          <Button color="#FF2E00" 
                   variant="contained" 
                   id={category} 
                   key={index} 
                   onClick={() => getItemByButton(category)}
           >
+            {icons && icons[index]}
             {category}
           </Button>
         ))
       }
-    </Box>
+      </Breadcrumbs>
   );
 }
 export default Categories;
